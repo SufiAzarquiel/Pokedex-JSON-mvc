@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
-<
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <!doctype html>
 <html lang="en">
 
@@ -36,15 +36,17 @@
         </nav>
         <main>
             <div class="row mx-3">
+            <c:forEach items="${pokemons}" var="item">
                 <div class="col-md-4 mt-4">
                     <div class="card">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/802.png"
+                        <img src="<c:out value="${item.foto}"></c:out>"
                             width="100%" alt="Title">
                         <div class="card-body">
-                            <p class="card-text">Pikachu</p>
+                            <p class="card-text"><c:out value="${item.name}"></c:out></p>
                         </div>
                     </div>
                 </div>
+            </c:forEach>
             </div>
         </main>
     </div>
